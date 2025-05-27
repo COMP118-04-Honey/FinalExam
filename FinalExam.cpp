@@ -1,3 +1,11 @@
+/**
+* @file FinalExam.cpp
+* @author Fedonas Melis
+* @date 2023-10-01
+* @version 1.0
+* @brief Program to manage a 3x5 matrix with specific functionalities.
+* @details This program allows the user to enter data into a 3x5 matrix,
+*/
 #include <iostream>
 using namespace std;
 
@@ -37,7 +45,7 @@ int main()
 	return 0;
 }
 
-//Functions
+
 void EnterData(double n[3][5]) {
 	for (int i = 0; i < 3; i++) {
 		for (int j = 0; j < 5; j++) {
@@ -50,6 +58,7 @@ void EnterData(double n[3][5]) {
 		}
 	}
 }
+
 double SumNeg(double n[3][5]) {
 	double sum = 0;
 	for (int i = 0; i < 3; i++) {
