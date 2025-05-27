@@ -1,20 +1,74 @@
-// FinalExam.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include <iostream>
+using namespace std;
+
+//Function prototypes
+void EnterData(double[3][5]);
+double SumNeg(double[3][5]);
+int CountElem(double[3][5]);
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	double matrix[3][5];
+	int choice = 3;
+	//Menu
+	while (choice != 0) {
+		cout << "\n1) Enter data in matrix (range -1.5 to 0.5)"
+			<< "\n2) Sum negative numbers in matrix"
+			<< "\n3) Display elements with 1.5 value"
+			<< "\n0) Exit"
+			<< "\nPlease enter choice: ";
+		cin >> choice;
+		switch (choice)
+		{
+		case 1:
+			EnterData(matrix);
+			cout << "\nData entered!";
+			break;
+		case 2:
+			cout << "\nSum of all negative numbers is: " << SumNeg(matrix);
+			break;
+		case 3:
+			cout << "\nNumber of elements with value 1.5 is: " << CountElem(matrix);
+			break;
+		default:
+			break;
+		}
+	}
+	return 0;
 }
 
-// Run program: Ctrl + F5 or Debug > Start Without Debugging menu
-// Debug program: F5 or Debug > Start Debugging menu
-
-// Tips for Getting Started: 
-//   1. Use the Solution Explorer window to add/manage files
-//   2. Use the Team Explorer window to connect to source control
-//   3. Use the Output window to see build output and other messages
-//   4. Use the Error List window to view errors
-//   5. Go to Project > Add New Item to create new code files, or Project > Add Existing Item to add existing code files to the project
-//   6. In the future, to open this project again, go to File > Open > Project and select the .sln file
+//Functions
+void EnterData(double n[3][5]) {
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 5; j++) {
+			cout << "\nEnter number: ";
+			cin >> n[i][j];
+			if (n[i][j] < -1.5 || n[i][j] > 0.5) {
+				cout << "\nInvalid input. Please enter a number in range of -1.5 to 0.5: ";
+				j--;
+			}
+		}
+	}
+}
+double SumNeg(double n[3][5]) {
+	double sum = 0;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 5; j++) {
+			if (n[i][j] < 0) {
+				sum += n[i][j];
+			}
+		}
+	}
+	return sum;
+}
+int CountElem(double n[3][5]) {
+	int count = 0;
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 5; j++) {
+			if (n[i][j] == 1.5) {
+				count++;
+			}
+		}
+	}
+	return count;
+}
