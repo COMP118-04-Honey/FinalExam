@@ -9,14 +9,21 @@
 #include <iostream>
 using namespace std;
 
-//Function prototypes
-void EnterData(double[3][5]);
-double SumNeg(double[3][5]);
-int CountElem(double[3][5]);
+//Matrix dimensions
+const int a = 3, b = 5; 
 
+//Function prototypes
+void EnterData(double[a][b]);
+double SumNeg(double[a][b]);
+int CountElem(double[a][b]);
+
+/*
+* @brief Main function to run the program.
+*/
 int main()
 {
-	double matrix[3][5];
+
+    double matrix[a][b];
 	int choice = 3;
 	//Menu
 	while (choice != 0) {
@@ -51,9 +58,9 @@ int main()
 * @param n 3x5 matrix to store the data.
 * @details The function prompts the user to enter numbers within the range of -1.5 to 0.5.
 */
-void EnterData(double n[3][5]) {
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 5; j++) {
+void EnterData(double n[a][b]) {
+	for (int i = 0; i < a; i++) {
+		for (int j = 0; j < b; j++) {
 			cout << "\nEnter number: ";
 			cin >> n[i][j];
 			if (n[i][j] < -1.5 || n[i][j] > 0.5) {
@@ -69,10 +76,10 @@ void EnterData(double n[3][5]) {
 * @return The sum of all negative numbers in the matrix.
 * @details The function iterates through the matrix and adds up all negative numbers.
 */
-double SumNeg(double n[3][5]) {
+double SumNeg(double n[a][b]) {
 	double sum = 0;
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 5; j++) {
+	for (int i = 0; i < a; i++) {
+		for (int j = 0; j < b; j++) {
 			if (n[i][j] < 0) {
 				sum += n[i][j];
 			}
@@ -86,10 +93,10 @@ double SumNeg(double n[3][5]) {
 * @return The count of elements with value 1.5 in the matrix.
 * @details The function iterates through the matrix and counts how many times the value 1.5 appears.
 */
-int CountElem(double n[3][5]) {
+int CountElem(double n[a][b]) {
 	int count = 0;
-	for (int i = 0; i < 3; i++) {
-		for (int j = 0; j < 5; j++) {
+	for (int i = 0; i < a; i++) {
+		for (int j = 0; j < b; j++) {
 			if (n[i][j] == 1.5) {
 				count++;
 			}
