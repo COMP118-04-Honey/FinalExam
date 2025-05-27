@@ -17,14 +17,19 @@ void EnterData(double[a][b]);
 double SumNeg(double[a][b]);
 int CountElem(double[a][b]);
 
-/*
+/**
 * @brief Main function to run the program.
+* @param chose1 A boolean variable to check if the user has entered data into the matrix.
 */
 int main()
 {
 
     double matrix[a][b];
 	int choice = 3;
+
+	//If the user has chosen to enter data (t/f)
+	bool chose1 = false;
+
 	//Menu
 	while (choice != 0) {
 		cout << "\n1) Enter data in matrix (range -1.5 to 0.5)"
@@ -38,11 +43,20 @@ int main()
 		case 1:
 			EnterData(matrix);
 			cout << "\nData entered!";
+			chose1 = true;
 			break;
 		case 2:
+			if (!chose1) {
+				cout << "\nYou must enter data first!";
+				break;
+			}
 			cout << "\nSum of all negative numbers is: " << SumNeg(matrix);
 			break;
 		case 3:
+			if (!chose1) {
+				cout << "\nYou must enter data first!";
+				break;
+			}
 			cout << "\nNumber of elements with value 1.5 is: " << CountElem(matrix);
 			break;
 		default:
